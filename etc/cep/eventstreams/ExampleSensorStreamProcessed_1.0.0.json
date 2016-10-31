@@ -1,0 +1,32 @@
+{
+  "name": "ExampleSensorStreamProcessed",
+  "version": "1.0.0",
+  "nickName": "",
+  "description": "",
+  "metaData": [
+    {
+      "name": "timestamp",
+      "type": "LONG"
+    },
+    {
+      "name": "sensorName",
+      "type": "STRING"
+    }
+  ],
+  "correlationData": [
+    {
+      "name": "longitude",
+      "type": "DOUBLE"
+    },
+    {
+      "name": "latitude",
+      "type": "DOUBLE"
+    }
+  ],
+  "payloadData": [
+    {
+      "name": "sensorValue",
+      "type": "FLOAT"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+/* Enter a unique ExecutionPlan */
+@Plan:name('ExecutionPlan')
+
+/* Enter a unique description for ExecutionPlan */
+-- @Plan:description('ExecutionPlan')
+
+/* define streams/tables and write queries here ... */
+
+@Import('ExampleSensorStream:1.0.0')
+define stream sensorstream (meta_timestamp long, meta_sensorName string, correlation_longitude double, correlation_latitude double, humidity float, sensorValue float);
+@Export('ExampleSensorStreamProcessed:1.0.0')
+define stream sensorstreamprocessed (meta_timestamp long, meta_sensorName string, correlation_longitude double, correlation_latitude double, sensorValue float);
+
+ 
+
+from sensorstream [sensorValue > 100]
+                select meta_timestamp, meta_sensorName, correlation_longitude, correlation_latitude, sensorValue
+                insert into sensorstreamprocessed
